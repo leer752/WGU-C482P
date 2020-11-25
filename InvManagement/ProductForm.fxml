@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="668.0" prefWidth="909.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="InvManagement.ProductFormController">
+   <children>
+      <HBox alignment="CENTER_LEFT" layoutX="50.0" layoutY="48.0" prefHeight="585.0" prefWidth="809.0">
+         <children>
+            <VBox prefHeight="483.0" prefWidth="520.0">
+               <children>
+                  <HBox prefHeight="107.0" prefWidth="350.0">
+                     <children>
+                        <Label id="productFormTitleLabel" fx:id="productFormLabel" prefHeight="50.0" prefWidth="169.0" text="Add Product">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="50.0" prefWidth="352.0">
+                     <children>
+                        <Label id="productFormIDLabel" prefHeight="25.0" prefWidth="132.0" text="ID">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                        <TextField id="productFormIDTextField" fx:id="idTextField" disable="true" prefHeight="25.0" prefWidth="175.0" promptText="Auto generated - disabled" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="50.0" prefWidth="352.0">
+                     <children>
+                        <Label id="productFormNameLabel" prefHeight="25.0" prefWidth="132.0" text="Name">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                        <TextField id="productFormNameTextField" fx:id="nameTextField" prefHeight="25.0" prefWidth="175.0" promptText="Enter product name" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="50.0" prefWidth="352.0">
+                     <children>
+                        <Label id="productFormStockLabel" prefHeight="25.0" prefWidth="132.0" text="Inventory">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                        <TextField id="productFormStockTextField" fx:id="stockTextField" prefHeight="25.0" prefWidth="175.0" promptText="Enter inventory number" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="50.0" prefWidth="352.0">
+                     <children>
+                        <Label id="productFormPriceLabel" prefHeight="25.0" prefWidth="132.0" text="Price/Cost">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                        <TextField id="productFormPriceTextField" fx:id="priceTextField" prefHeight="25.0" prefWidth="175.0" promptText="Enter price/cost per unit" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="50.0" prefWidth="352.0">
+                     <children>
+                        <Label id="productFormMinLabel" prefHeight="25.0" prefWidth="132.0" text="Min">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                        <TextField id="productFormMinTextField" fx:id="minTextField" prefHeight="25.0" prefWidth="175.0" promptText="Enter minimum inventory" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="50.0" prefWidth="352.0">
+                     <children>
+                        <Label id="productFormMaxLabel" prefHeight="25.0" prefWidth="132.0" text="Max">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </Label>
+                        <TextField id="productFormMaxTextField" fx:id="maxTextField" prefHeight="25.0" prefWidth="175.0" promptText="Enter maximum inventory" />
+                     </children>
+                  </HBox>
+                  <Label fx:id="errorLabel" alignment="TOP_CENTER" prefHeight="173.0" prefWidth="350.0" textAlignment="CENTER" textFill="RED">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox prefHeight="483.0" prefWidth="630.0">
+               <children>
+                  <HBox alignment="TOP_RIGHT" prefHeight="42.0" prefWidth="460.0">
+                     <children>
+                        <TextField id="productFormSearchTextField" fx:id="partSearchTextField" prefHeight="25.0" prefWidth="215.0" promptText="Search by Part ID or Name">
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <TableView id="productFormPartTableView" fx:id="partTableView" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn id="productFormPartIDCol" fx:id="partIDCol" prefWidth="90.0" text="Part ID" />
+                      <TableColumn id="productFormPartNameCol" fx:id="partNameCol" prefWidth="132.0" text="Part Name" />
+                        <TableColumn id="productFormPartStockCol" fx:id="partStockCol" prefWidth="110.0" text="Inventory Level" />
+                        <TableColumn id="productFormPartPriceCol" fx:id="partPriceCol" prefWidth="127.0" text="Price/Cost per Unit" />
+                    </columns>
+                  </TableView>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="52.0" prefWidth="460.0">
+                     <children>
+                        <Button id="productFormPartAddButton" fx:id="addAssociatedPartBtn" mnemonicParsing="false" onAction="#addAssociatedPart" prefHeight="25.0" prefWidth="56.0" text="Add">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <TableView id="productFormAssociatedPartTableView" fx:id="associatedPartsTableView" prefHeight="200.0" prefWidth="200.0">
+                     <columns>
+                        <TableColumn id="productFormSelPartIDCol" fx:id="associatedPartIDCol" prefWidth="90.0" text="Part ID" />
+                        <TableColumn id="productFormSelPartNameCol" fx:id="associatedPartNameCol" prefWidth="132.0" text="Part Name" />
+                        <TableColumn id="productFormSelPartStockCol" fx:id="associatedPartStockCol" prefWidth="110.0" text="Inventory Level" />
+                        <TableColumn id="productFormSelPartPriceCol" fx:id="associatedPartPriceCol" prefWidth="127.0" text="Price/Cost per Unit" />
+                     </columns>
+                  </TableView>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="52.0" prefWidth="460.0">
+                     <children>
+                        <Button id="productFormPartRemoveButton" fx:id="removeAssociatedPartBtn" mnemonicParsing="false" onAction="#deleteAssociatedPart" prefHeight="25.0" prefWidth="171.0" text="Remove Associated Part">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="35.0" prefWidth="460.0">
+                     <children>
+                        <Button id="productFormSaveButton" fx:id="saveBtn" mnemonicParsing="false" onAction="#addUpdateProduct" prefHeight="25.0" prefWidth="62.0" text="Save">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button id="productFormCancelButton" fx:id="cancelBtn" mnemonicParsing="false" onAction="#exitForm" prefHeight="25.0" prefWidth="62.0" text="Cancel">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</Pane>
